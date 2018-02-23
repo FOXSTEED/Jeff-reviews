@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const dataGen = require('../database/seedData.js');
+
+console.log('what', dataGen);
 
 app.use(express.static(path.join(__dirname, '..', 'src/client/public')));
 
