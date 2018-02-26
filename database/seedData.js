@@ -1,4 +1,5 @@
 const faker = require('faker');
+const db = require('./index.js');
 
 let makeData = (num) => {
   let ratingGen = Math.floor(Math.random() * 5) + 1;
@@ -25,5 +26,5 @@ let allData = () => {
   return output;
 }
 
-module.exports.makeData = makeData;
-module.exports.allData = allData;
+let data = allData();
+db.save(data);

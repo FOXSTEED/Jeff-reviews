@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/reviews');
-const dataGen = require('./seedData.js');
 
 const db = mongoose.connection;
 db.once('open', function() {
@@ -39,4 +38,16 @@ let save = (arr) => {
   }
 }
 
+let find = (listing, callback) => {
+  Review.find(function(err, reviews) {
+    if (err) {
+      return console.error(err);
+    } else {
+      callback(reviews);
+    }
+  }).where('listingId').equals(listing);
+}
+
+
 module.exports.save = save;
+module.exports.find = find;

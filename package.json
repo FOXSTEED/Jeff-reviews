@@ -17,7 +17,8 @@
   "scripts": {
     "start": "webpack-dev-server --progress --colors --config ./webpack.config.js",
     "dev": "webpack -d --watch",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "seed-db": "node ./database/seedData.js"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
