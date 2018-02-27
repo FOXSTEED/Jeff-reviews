@@ -1,5 +1,6 @@
 const faker = require('faker');
 const db = require('./index.js');
+mongoose.connect('mongodb://localhost/reviews');
 
 let makeData = (num) => {
   let ratingGen = Math.floor(Math.random() * 5) + 1;
