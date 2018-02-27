@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/reviews');
 
 let reviewSchema = mongoose.Schema({
   listingId: Number,
@@ -45,4 +46,4 @@ let find = (listing, callback) => {
 
 module.exports.save = save;
 module.exports.find = find;
-module.exports.review = Review;
+module.exports.Review = Review;

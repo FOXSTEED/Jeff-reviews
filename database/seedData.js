@@ -1,5 +1,6 @@
 const faker = require('faker');
 const db = require('./index.js');
+const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/reviews');
 
 let makeData = (num) => {
@@ -21,7 +22,7 @@ let makeData = (num) => {
 
 let allData = () => {
   let output = [];
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 1600; i++) {
     output.push(makeData(i));
   }
   return output;
