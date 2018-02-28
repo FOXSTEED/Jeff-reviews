@@ -3,6 +3,7 @@ mongoose.connect('mongodb://localhost/reviews');
 
 let reviewSchema = mongoose.Schema({
   listingId: Number,
+  location: String,
   reviewId: {type: Number, unique: true},
   date: String,
   rating: Number,
@@ -10,7 +11,9 @@ let reviewSchema = mongoose.Schema({
   comment: String,
   userName: String,
   userLocation: String,
-  userImage: String
+  userImage: String,
+  userThumbs: Number,
+  userReviews: Number
 });
 
 let Review = mongoose.model('Review', reviewSchema);
@@ -20,6 +23,7 @@ let save = (arr) => {
     let entry = arr[i];
     let toSave = new Review({
       listingId: entry.listingId,
+      location: entry.location,
       reviewId: entry.reviewId,
       date: entry.date,
       rating: entry.rating,
@@ -27,7 +31,9 @@ let save = (arr) => {
       comment: entry.comment,
       userName: entry.userName,
       userLocation: entry.userLocation,
-      userImage: entry.userImage
+      userImage: entry.userImage,
+      userThumbs: entry.userThumbs,
+      userReviews: entry.userReviews
     });
     toSave.save();
   }
