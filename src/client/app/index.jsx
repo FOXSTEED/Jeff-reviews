@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ReviewList from './components/ReviewList.jsx';
+import styles from './components/app.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class App extends React.Component {
         <div>
           <span>Reviews</span>
           <span>{`(${this.state.reviews.length})`}</span>
-          <a href='#'>Write a review</a>
+          <a href='#'><button className={styles.button}>Write a review</button></a>
         </div>
         <div>
           <ReviewList reviews={this.state.reviews} />
@@ -45,3 +46,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, document.getElementById('app'));
+

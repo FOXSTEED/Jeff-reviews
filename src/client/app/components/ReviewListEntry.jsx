@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from './app.css';
 
 const ReviewListEntry = (props) => {
   return (
     <div>
       <div>
-        <img src={props.review.userImage} />
+        <img src={props.review.userImage} className={styles.picture}/>
         <span>{props.review.userName}</span>
         <span><strong>{props.review.userLocation}</strong></span>
       </div>
