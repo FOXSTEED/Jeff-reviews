@@ -1,7 +1,13 @@
 .user {
-  float: left;
   margin-bottom: 0;
-  padding: 0
+  padding: 0;
+  height: 55%;
+  display: block;
+  float: left;
+}
+
+.comment {
+
 }
 
 .username {

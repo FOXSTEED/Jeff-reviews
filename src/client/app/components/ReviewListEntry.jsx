@@ -13,12 +13,12 @@ const ReviewListEntry = (props) => {
         <span>{`${props.review.rating} STAR(S)!`}</span>
         <span>{`Reviewed on ${props.review.date}`}</span>
       </div>
-      <div>
+      <div className={styles.comment}>
         <p className={styles.headline}>{props.review.reviewHeadline}</p>
         <p className={styles.review}>{props.review.comment}</p>
       </div>
       <div>
-        <span>{`Ask ${props.review.userName} about Pearl Harbor`}</span>
+        <a href='#'>{`Ask ${props.review.userName} about Pearl Harbor`}</a>
         <p><em>This review is the subjective opinion of a TripAdvisor member and not of TripAdvisor LLC.</em></p>
       </div>
     </div>
