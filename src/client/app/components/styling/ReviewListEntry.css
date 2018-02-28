@@ -1,0 +1,42 @@
+.user {
+  float: left;
+  margin-bottom: 0;
+  padding: 0
+}
+
+.username {
+  font-size: 11px;
+  cursor: pointer;
+  line-height: 20px;
+  color: rgb(118, 118, 118);
+}
+
+.location {
+  font-size: 11px;
+  cursor: pointer;
+  line-height: 20px;
+  color: rgb(44, 44, 44);
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.picture {
+  width: 90px;
+  height: 90px;
+  border-radius: 100px;
+}
+
+.headline {
+  color: rgb(0, 10, 18);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: left;
+}
+
+.review {
+  color: rgb(74, 74, 74);
+  font-size: 14px;
+  line-height: 20px;
+
+}

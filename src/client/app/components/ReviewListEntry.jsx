@@ -1,21 +1,21 @@
 import React from 'react';
-import styles from './app.css';
+import styles from './styling/ReviewListEntry.css';
 
 const ReviewListEntry = (props) => {
   return (
     <div>
-      <div>
+      <div className={styles.user}>
         <img src={props.review.userImage} className={styles.picture}/>
-        <span>{props.review.userName}</span>
-        <span><strong>{props.review.userLocation}</strong></span>
+        <p className={styles.username}>{props.review.userName}</p>
+        <p className={styles.location}>{props.review.userLocation}</p>
       </div>
       <div>
         <span>{`${props.review.rating} STAR(S)!`}</span>
         <span>{`Reviewed on ${props.review.date}`}</span>
       </div>
       <div>
-        <p>{props.review.reviewHeadline}</p>
-        <p>{props.review.comment}</p>
+        <p className={styles.headline}>{props.review.reviewHeadline}</p>
+        <p className={styles.review}>{props.review.comment}</p>
       </div>
       <div>
         <span>{`Ask ${props.review.userName} about Pearl Harbor`}</span>

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ReviewList from './components/ReviewList.jsx';
-import styles from './components/app.css';
+import styles from './components/styling/app.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,11 +31,11 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className={styles.main}>
         <div>
-          <span>Reviews</span>
-          <span>{`(${this.state.reviews.length})`}</span>
-          <a href='#'><button className={styles.button}>Write a review</button></a>
+          <span className={styles.title}>Reviews</span>
+          <span className={styles.counter}>{`(${this.state.reviews.length})`}</span>
+          <a href='#'><button className={styles.button}>Write a Review</button></a>
         </div>
         <div>
           <ReviewList reviews={this.state.reviews} />
