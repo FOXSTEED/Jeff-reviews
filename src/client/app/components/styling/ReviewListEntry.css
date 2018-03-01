@@ -3,6 +3,10 @@
   display: flex;
   margin-top: 5px;
   overflow: auto;
+  margin-bottom: 10px;
+  border-bottom-color: rgb(229, 229, 229);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
 }
 
 .user {
@@ -80,6 +84,7 @@
   color: rgb(0, 102, 153);
   text-decoration: none;
   display: block;
+  margin-bottom: 10px;
 }
 
 .button {
@@ -108,5 +113,5 @@
 
 .bottomnote {
   font-size: 12px;
-  margin-bottom: 0
+  margin-bottom: 10px;
 }

@@ -5,6 +5,15 @@
   display: block;
 }
 
+.header {
+  border-bottom-color: rgb(229, 229, 229);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  margin-bottom: 10px;
+}
+
 .title {
   font-size: 28px;
   font-weight: 700;

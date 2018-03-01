@@ -32,7 +32,7 @@ class App extends React.Component {
   render () {
     return (
       <div className={styles.main}>
-        <div>
+        <div className={styles.header}>
           <span className={styles.title}>Reviews</span>
           <span className={styles.counter}>{`(${this.state.reviews.length})`}</span>
           <a href='#'><button className={styles.button}>Write a Review</button></a>
