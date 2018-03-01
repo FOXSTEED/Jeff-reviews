@@ -48,6 +48,14 @@
   border-radius: 100px;
 }
 
+.header {
+  display: inline-block;
+}
+
+.bubbles {
+  margin: 5px;
+}
+
 .date {
   color: rgb(74, 74, 74);
   font-size: 12px;
@@ -75,7 +83,6 @@
 }
 
 .button {
-  display: block;
   background-color: rgb(255, 255, 255);
   color: rgb(74, 74, 74);
   font-size: 12px;
@@ -83,6 +90,11 @@
   height: 20px;
   border: 1px solid #e5e5e5;
   border-radius: 4px;
+}
+
+.flag {
+  float: right;
+  color: rgb(74, 74, 74);
 }
 
 .button:hover {

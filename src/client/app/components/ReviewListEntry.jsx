@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styling/ReviewListEntry.css';
+import ReviewBubbles from './ReviewBubbles.jsx';
 
 const ReviewListEntry = (props) => {
   return (
@@ -12,8 +13,8 @@ const ReviewListEntry = (props) => {
         <span className={styles.belowUser}>{props.review.userThumbs} <i class="fas fa-thumbs-up"></i></span>
       </div>
       <div>
-        <div>
-          <span>{`${props.review.rating} STAR(S)!`}</span>
+        <div className={styles.header}>
+          <span className={styles.bubbles}><ReviewBubbles rating={props.review.rating}/></span>
           <span className={styles.date}>{`Reviewed ${props.review.howRecent}`}</span>
         </div>
         <div className={styles.comment}>
@@ -22,7 +23,10 @@ const ReviewListEntry = (props) => {
         </div>
         <div>
           <a href='#' className={styles.ask}>{`Ask ${props.review.userName} about ${props.review.location}`}</a>
-          <button className={styles.button}><span className={styles.thumb}><i class="fas fa-thumbs-up"></i></span>{`Thank ${props.review.userName}`}</button>
+          <div>
+            <button className={styles.button}><span className={styles.thumb}><i class="fas fa-thumbs-up"></i></span>{`Thank ${props.review.userName}`}</button>
+            <span className={styles.flag}><i class="fas fa-flag"></i></span>
+          </div>
           <p className={styles.bottomnote}><em>This review is the subjective opinion of a Nomad member and not of Nomad LLC.</em></p>
         </div>
       </div>
