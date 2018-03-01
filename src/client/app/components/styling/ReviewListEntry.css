@@ -1,0 +1,118 @@
+.main {
+  height: auto;
+  display: flex;
+  margin-top: 5px;
+  overflow: auto;
+  margin-bottom: 10px;
+  border-bottom-color: rgb(229, 229, 229);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.user {
+  margin: 0;
+  padding: 0;
+  height: 40%;
+  display: table-row;
+  flex-direction: column;
+  float: left;
+  padding: 12px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.belowUser {
+  color: rgb(0, 166, 128);
+  font-size: 12px;
+  margin-left: 2px;
+  margin-right: 2px;
+  text-align: center;
+}
+
+.username {
+  font-size: 11px;
+  cursor: pointer;
+  line-height: 20px;
+  color: rgb(118, 118, 118);
+  margin: 0;
+}
+
+.location {
+  font-size: 11px;
+  cursor: pointer;
+  line-height: 20px;
+  color: rgb(44, 44, 44);
+  font-weight: 700;
+  margin: 0;
+}
+
+.picture {
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+}
+
+.header {
+  display: inline-block;
+}
+
+.bubbles {
+  margin: 5px;
+}
+
+.date {
+  color: rgb(74, 74, 74);
+  font-size: 12px;
+}
+
+.headline {
+  color: rgb(0, 10, 18);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: left;
+}
+
+.review {
+  color: rgb(74, 74, 74);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.ask {
+  font-size: 12px;
+  color: rgb(0, 102, 153);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: rgb(255, 255, 255);
+  color: rgb(74, 74, 74);
+  font-size: 12px;
+  font-weight: 400;
+  height: 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.flag {
+  float: right;
+  color: rgb(74, 74, 74);
+}
+
+.button:hover {
+  border-color: #00a680;
+}
+
+.thumb {
+  color: #00a680;
+  margin-right: 5px;
+}
+
+.bottomnote {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
