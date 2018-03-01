@@ -3,7 +3,6 @@
   display: flex;
   margin-top: 5px;
   overflow: auto;
-
 }
 
 .user {
@@ -15,10 +14,15 @@
   float: left;
   padding: 12px;
   box-sizing: border-box;
+  text-align: center;
 }
 
-.comment {
-
+.belowUser {
+  color: rgb(0, 166, 128);
+  font-size: 12px;
+  margin-left: 2px;
+  margin-right: 2px;
+  text-align: center;
 }
 
 .username {
@@ -67,6 +71,27 @@
   font-size: 12px;
   color: rgb(0, 102, 153);
   text-decoration: none;
+  display: block;
+}
+
+.button {
+  display: block;
+  background-color: rgb(255, 255, 255);
+  color: rgb(74, 74, 74);
+  font-size: 12px;
+  font-weight: 400;
+  height: 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+}
+
+.button:hover {
+  border-color: #00a680;
+}
+
+.thumb {
+  color: #00a680;
+  margin-right: 5px;
 }
 
 .bottomnote {
