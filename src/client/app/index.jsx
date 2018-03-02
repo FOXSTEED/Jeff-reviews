@@ -33,6 +33,10 @@ class App extends React.Component {
     })
   }
 
+  sortByRating(num) {
+    console.log('sortedbynum', num);
+  }
+
   getDistribution(arr) {
     console.log('running')
     let base = {
@@ -73,7 +77,7 @@ class App extends React.Component {
           <a href='#'><button className={styles.button}>Write a Review</button></a>
         </div>
         <div>
-          <Graph rating={this.state.distribution} percentage={this.state.percentage}/>
+          <Graph rating={this.state.distribution} percentage={this.state.percentage} sort={this.sortByRating.bind(this)}/>
         </div>
         <div>
           <ReviewList reviews={this.state.reviews} />
