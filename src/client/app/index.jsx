@@ -76,8 +76,6 @@ class App extends React.Component {
     this.setState({percentage: percent});
   }
 
-  render () {
-=======
   reset() {
     let copied = this.state.copied;
     this.setState({reviews: copied});
