@@ -10,13 +10,11 @@ import Graph from './components/Graph.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       reviews: [],
-      distribution: {},
-      percentage: {},
       copied: [],
-      topWords: []
+      topWords: [],
+      graphInfo: []
     };
     this.fetch();
   }
@@ -27,7 +25,6 @@ class App extends React.Component {
       type: 'GET',
       url: '/listings/134/reviews',
       success: function(data) {
-        console.log('success', data);
         context.getDistribution(data);
         context.setState({reviews: data});
         context.setState({copied: data});
@@ -38,7 +35,33 @@ class App extends React.Component {
       }
     })
   }
-  
+
+  generateGraphData(count, percents) {
+    let rating = {
+      5: 'Excellent',
+      4: 'Very good',
+      3: 'Average',
+      2: 'Poor',
+      1: 'Terrible'
+    }
+    let info = [];
+    for (let key in count) {
+      info.unshift({rating: rating[key], count: count[key], percentage: percents[key], rank: key});
+    }
+    this.setState({graphInfo: info});
+  }
+
+  handleRating(e) {
+    let rating = {
+      'Excellent': 5,
+      'Very good': 4,
+      'Average': 3,
+      'Poor': 2,
+      'Terrible': 1
+    }
+    this.sortByRating(rating[e.target.innerText]);
+  }
+
   sortByRating(num) {
     let filtered = [];
     let current = this.state.copied;
@@ -51,7 +74,6 @@ class App extends React.Component {
   }
 
   getDistribution(arr) {
-    console.log('running')
     let base = {
       5: 0,
       4: 0,
@@ -67,7 +89,6 @@ class App extends React.Component {
       }
       return acc;
     }, base);
-    this.setState({distribution: distro});
     this.getPercentage(distro);
   }
 
@@ -77,8 +98,7 @@ class App extends React.Component {
     for (let key in obj) {
       percent[key] = Math.trunc(obj[key] / numReviews * 100);
     }
-    console.log(percent);
-    this.setState({percentage: percent});
+    this.generateGraphData(obj, percent);
   }
 
   reset() {
@@ -128,7 +148,7 @@ class App extends React.Component {
           <a href='#'><button className={styles.button}>Write a Review</button></a>
         </div>
         <div className={styles.graph}>
-          <Graph rating={this.state.distribution} percentage={this.state.percentage} sort={this.sortByRating.bind(this)}/>
+          <Graph graphInfo={this.state.graphInfo} handleRating={this.handleRating.bind(this)}/>
         </div>
         <div className={styles.header}>
           <Search words={this.state.topWords} reset={this.reset.bind(this)} numRev={this.state.reviews.length} filter={this.filterByWord.bind(this)}/>
