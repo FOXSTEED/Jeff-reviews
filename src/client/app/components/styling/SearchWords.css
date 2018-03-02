@@ -1,0 +1,57 @@
+.buttons {
+  font-size: 12px;
+  display: inline-block;
+  line-height: 14px;
+  padding-bottom: 10px;
+  padding-top: 11px;
+  padding-left: 12px;
+  padding-right: 12px;
+  text-align: center;
+  margin-bottom: 6px;
+  margin-right: 6px;
+  margin-top: 10px;
+  color: rgb(74, 74, 74);
+  border-radius: 2px;
+  border: 1px solid rgb(229, 229, 229);
+}
+
+.buttons:hover {
+  color: rgb(0, 166, 128);
+  border-color: rgb(0, 166, 128);
+}
+
+.header {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(0, 10, 18);
+  margin-bottom: 3px;
+  margin-top: 5px;
+}
+
+.search {
+  display: block;
+  font-size: 12px;
+  width: 95%;
+  border: 2px solid rgb(229, 229, 229);
+  padding: 10px;
+}
+
+.icon {
+  color: rgb(0, 166, 128);
+  margin-right: 5px;
+}
+
+.input {
+  outline: none;
+  border: 0px solid;
+  width: 95%;
+}
+
+.nums {
+  font-size: 12px;
+  display: block;
+  color: rgb(74, 74, 74);
+  text-align: right;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
