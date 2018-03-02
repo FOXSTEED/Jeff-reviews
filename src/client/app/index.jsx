@@ -41,9 +41,8 @@ class App extends React.Component {
   }
 
   filterByWord(word) {
-    let copied = this.state.copied;
     let filtered = [];
-    let current = this.state.reviews;
+    let current = this.state.copied;
     for (let i = 0; i < current.length; i++) {
       if (current[i].comment.includes(word)) {
         filtered.push(current[i]);
