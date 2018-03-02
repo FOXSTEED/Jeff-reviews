@@ -23,6 +23,7 @@ class Graph extends React.Component {
   render() {
     return (
       <div className={styles.main}>
+        <p className={styles.header}>Traveler rating</p>
         <ul className={styles.list}>
           <li className={styles.entry}><div onClick={(e) => this.handleClick(e)} className={styles.rating}>Excellent</div><span className={styles.bar}><span style={{width: `${this.props.percentage[5]}%`}} className={styles.innerBar}></span></span><span>{this.props.rating[5]}</span></li>
           <li className={styles.entry}><div onClick={(e) => this.handleClick(e)} className={styles.rating}>Very good</div><span className={styles.bar}><span style={{width: `${this.props.percentage[4]}%`}} className={styles.innerBar}></span></span><span>{this.props.rating[4]}</span></li>

@@ -8,10 +8,17 @@
   display: inline-block;
 }
 
+.header {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(0, 10, 18);
+  margin-bottom: 10px;
+}
+
 .rating {
   display: inline-block;
   width: 75px;
-  margin-left: 10px;
+  margin-left: 0;
   color: rgb(74, 74, 74);
 }
 
@@ -22,12 +29,14 @@
 }
 
 .main {
-  width: 75%;
+  width: 80%;
+  margin-top: 30px;
 }
 
 .list {
   list-style-type: none;
   padding-left: 0;
+  margin-top: 0;
 }
 
 .entry {
