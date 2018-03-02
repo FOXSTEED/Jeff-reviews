@@ -11,7 +11,8 @@ class App extends React.Component {
 
     this.state = {
       reviews: [],
-      distribution: {}
+      distribution: {},
+      percentage: {}
     };
     this.fetch();
   }
@@ -24,8 +25,7 @@ class App extends React.Component {
       success: function(data) {
         console.log('success', data);
         context.setState({'reviews': data});
-        let distro = context.getDistribution(data);
-        context.setState({distribution: distro});
+        context.getDistribution(data);
       },
       error: function(err) {
         console.log('error');
@@ -34,14 +34,34 @@ class App extends React.Component {
   }
 
   getDistribution(arr) {
-    return arr.reduce((acc, value) => {
+    console.log('running')
+    let base = {
+      5: 0,
+      4: 0,
+      3: 0,
+      2: 0,
+      1: 0
+    }
+    let distro = arr.reduce((acc, value) => {
       if (acc[value.rating]) {
         acc[value.rating]++;
       } else {
         acc[value.rating] = 1;
       }
       return acc;
-    }, {});
+    }, base);
+    this.setState({distribution: distro});
+    this.getPercentage(distro);
+  }
+
+  getPercentage(obj) {
+    let numReviews = Object.values(obj).reduce((acc, value) => acc + value);
+    let percent = {}
+    for (let key in obj) {
+      percent[key] = Math.trunc(obj[key] / numReviews * 100);
+    }
+    console.log(percent);
+    this.setState({percentage: percent});
   }
 
   render () {
@@ -53,7 +73,7 @@ class App extends React.Component {
           <a href='#'><button className={styles.button}>Write a Review</button></a>
         </div>
         <div>
-          <Graph rating={this.state.distribution} />
+          <Graph rating={this.state.distribution} percentage={this.state.percentage}/>
         </div>
         <div>
           <ReviewList reviews={this.state.reviews} />
