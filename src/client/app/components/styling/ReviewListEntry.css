@@ -116,4 +116,10 @@
 .bottomnote {
   font-size: 12px;
   margin-bottom: 10px;
+  border-top-color: rgb(229, 229, 229);
+  border-top-width: 1px;
+  border-top-style: solid;
+  padding-top: 12px;
+  color: rgb(118, 118, 118);
+  width: 75%;
 }

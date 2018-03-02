@@ -3,6 +3,7 @@
   width: 66.6%;
   box-sizing: border-box;
   display: block;
+  margin: 0 auto;
 }
 
 .header {
@@ -31,9 +32,13 @@
   color: rgb(255, 255, 255);
   height: 36px;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
   background-color: rgb(0, 166, 128);
   float: right;
   border-radius: 2px;
-  width: 30%;
+  width: 25%;
+}
+
+.button:hover {
+  background-color: rgb(0, 192, 148);
 }

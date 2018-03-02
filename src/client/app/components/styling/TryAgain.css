@@ -1,0 +1,10 @@
+.try {
+  background-color: rgb(255, 248, 208);
+  color: rgb(74, 74, 74);
+  font-size: 12px;
+  padding: 14px 12px;
+}
+
+.clear {
+  float: right;
+}
