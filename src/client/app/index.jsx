@@ -22,7 +22,7 @@ class App extends React.Component {
     let context = this;
     $.ajax({
       type: 'GET',
-      url: '/listings/135/reviews',
+      url: '/listings/21/reviews',
       success: function(data) {
         console.log('success', data);
         context.setState({reviews: data});
