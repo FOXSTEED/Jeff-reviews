@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ReviewList from './components/ReviewList.jsx';
 import Search from './components/Search.jsx';
+import TryAgain from './components/TryAgain.jsx';
 import styles from './components/styling/app.css';
 
 class App extends React.Component {
@@ -21,7 +22,7 @@ class App extends React.Component {
     let context = this;
     $.ajax({
       type: 'GET',
-      url: '/listings/134/reviews',
+      url: '/listings/135/reviews',
       success: function(data) {
         console.log('success', data);
         context.setState({reviews: data});
@@ -85,7 +86,7 @@ class App extends React.Component {
           <Search words={this.state.topWords} reset={this.reset.bind(this)} numRev={this.state.reviews.length} filter={this.filterByWord.bind(this)}/>
         </div>
         <div>
-          <ReviewList reviews={this.state.reviews} />
+          {this.state.reviews.length ? <ReviewList reviews={this.state.reviews} /> : <TryAgain reset={this.reset.bind(this)}/>}
         </div>
       </div>
     )
