@@ -1,0 +1,46 @@
+.bar {
+  background-color: rgb(229,229, 229);
+  width: 50%;
+  height: 12px;
+  margin-right: 10px;
+  margin-left: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.rating {
+  display: inline-block;
+  width: 75px;
+  margin-left: 10px;
+  color: rgb(74, 74, 74);
+}
+
+.rating:hover {
+  color: rgb(0, 166, 128);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.main {
+  width: 75%;
+}
+
+.list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.entry {
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.innerBar {
+  background-color: rgb(0, 166, 128);
+  height: 12px;
+  margin-right: 10px;
+  margin-left: 20px;
+  position: relative;
+  display: inline-block;
+  margin-left: 0;
+}

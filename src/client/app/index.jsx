@@ -5,6 +5,7 @@ import ReviewList from './components/ReviewList.jsx';
 import Search from './components/Search.jsx';
 import TryAgain from './components/TryAgain.jsx';
 import styles from './components/styling/app.css';
+import Graph from './components/Graph.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,6 +13,8 @@ class App extends React.Component {
 
     this.state = {
       reviews: [],
+      distribution: {},
+      percentage: {},
       copied: [],
       topWords: []
     };
@@ -25,8 +28,10 @@ class App extends React.Component {
       url: '/listings/21/reviews',
       success: function(data) {
         console.log('success', data);
+        context.setState({'reviews': data});
+        context.getDistribution(data);
         context.setState({reviews: data});
-        context.setState({copied: data})
+        context.setState({copied: data});
         let words = context.getWords(data);
         context.setState({topWords: words});
       },
@@ -35,7 +40,44 @@ class App extends React.Component {
       }
     })
   }
+  
+  sortByRating(num) {
+    console.log('sortedbynum', num);
+  }
 
+  getDistribution(arr) {
+    console.log('running')
+    let base = {
+      5: 0,
+      4: 0,
+      3: 0,
+      2: 0,
+      1: 0
+    }
+    let distro = arr.reduce((acc, value) => {
+      if (acc[value.rating]) {
+        acc[value.rating]++;
+      } else {
+        acc[value.rating] = 1;
+      }
+      return acc;
+    }, base);
+    this.setState({distribution: distro});
+    this.getPercentage(distro);
+  }
+
+  getPercentage(obj) {
+    let numReviews = Object.values(obj).reduce((acc, value) => acc + value);
+    let percent = {}
+    for (let key in obj) {
+      percent[key] = Math.trunc(obj[key] / numReviews * 100);
+    }
+    console.log(percent);
+    this.setState({percentage: percent});
+  }
+
+  render () {
+=======
   reset() {
     let copied = this.state.copied;
     this.setState({reviews: copied});
@@ -86,6 +128,10 @@ class App extends React.Component {
           <Search words={this.state.topWords} reset={this.reset.bind(this)} numRev={this.state.reviews.length} filter={this.filterByWord.bind(this)}/>
         </div>
         <div>
+          <Graph rating={this.state.distribution} percentage={this.state.percentage} sort={this.sortByRating.bind(this)}/>
+        </div>
+        <div>
+          <ReviewList reviews={this.state.reviews} />
           {this.state.reviews.length ? <ReviewList reviews={this.state.reviews} /> : <TryAgain reset={this.reset.bind(this)}/>}
         </div>
       </div>
