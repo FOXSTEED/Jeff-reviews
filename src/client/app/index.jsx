@@ -11,6 +11,7 @@ class App extends React.Component {
 
     this.state = {
       reviews: [],
+      copied: [],
       topWords: []
     };
     this.fetch();
@@ -23,9 +24,10 @@ class App extends React.Component {
       url: '/listings/134/reviews',
       success: function(data) {
         console.log('success', data);
-        context.setState({'reviews': data});
+        context.setState({reviews: data});
+        context.setState({copied: data})
         let words = context.getWords(data);
-        context.setState({'topWords': words});
+        context.setState({topWords: words});
       },
       error: function(err) {
         console.log('error');
@@ -33,12 +35,27 @@ class App extends React.Component {
     })
   }
 
+  reset() {
+    let copied = this.state.copied;
+    this.setState({reviews: copied});
+  }
+
+  filterByWord(word) {
+    let copied = this.state.copied;
+    let filtered = [];
+    let current = this.state.reviews;
+    for (let i = 0; i < current.length; i++) {
+      if (current[i].comment.includes(word)) {
+        filtered.push(current[i]);
+      }
+    }
+    this.setState({reviews: filtered})
+  }
+
   getWords(arr) {
-    console.log('RANNNN');
     let wordsArr = [];
     for (let i = 0; i < arr.length; i++) {
       arr[i].comment.split(' ').forEach(word => wordsArr.push(word));
-      console.log(wordsArr);
     }
     let wordsObj = wordsArr.reduce((acc, value) => {
       if (acc[value]) {
@@ -66,7 +83,7 @@ class App extends React.Component {
           <a href='#'><button className={styles.button}>Write a Review</button></a>
         </div>
         <div className={styles.header}>
-          <Search words={this.state.topWords} numRev={this.state.reviews.length}/>
+          <Search words={this.state.topWords} reset={this.reset.bind(this)} numRev={this.state.reviews.length} filter={this.filterByWord.bind(this)}/>
         </div>
         <div>
           <ReviewList reviews={this.state.reviews} />

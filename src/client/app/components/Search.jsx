@@ -12,6 +12,12 @@ class Search extends React.Component {
     }
   }
 
+  handleClick(e) {
+    console.log('clickeddd');
+    let word = e.currentTarget.textContent;
+    this.props.filter(word);
+  }
+
   render() {
     return (
       <div>
@@ -19,8 +25,8 @@ class Search extends React.Component {
         <div className={styles.search}>
           <span className={styles.icon}><i class="fas fa-search"></i></span><input placeholder={this.state.placeholder} className={styles.input}></input>
         </div>
-        <div className={styles.buttons}>All reviews</div>
-        {this.props.words.map(word => <Word word={word}/>)}
+        <div onClick={() => this.props.reset()} className={styles.buttons}>All reviews</div>
+        {this.props.words.map(word => <Word word={word} handleClick={this.handleClick.bind(this)}/>)}
         <p className={styles.nums}>{`1 - ${this.props.numRev} reviews`}</p>
       </div>
     )
