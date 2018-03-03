@@ -9,4 +9,4 @@ app.use(express.static(path.join(__dirname, '..', 'src/client/public')));
 
 app.use('/listings', routes);
 
-app.listen(9000, () => console.log('Server running! Listening on port 9000!'));
+app.listen(3001, () => console.log('Server running! Listening on port 3001!'));
