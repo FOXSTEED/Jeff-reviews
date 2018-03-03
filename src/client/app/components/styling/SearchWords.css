@@ -57,6 +57,7 @@
 .icon {
   color: rgb(0, 166, 128);
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .input {

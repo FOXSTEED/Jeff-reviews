@@ -3,15 +3,33 @@
   width: 66.6%;
   box-sizing: border-box;
   display: block;
-  margin: 0 auto;
+  padding-left: 24px;
 }
 
 .header {
   border-bottom-color: rgb(229, 229, 229);
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  padding-bottom: 12px;
+  padding-bottom: 10px;
   padding-top: 12px;
+  margin-bottom: 10px;
+}
+
+.titleHeader {
+  border-bottom-color: rgb(229, 229, 229);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-bottom: 20px;
+  padding-top: 12px;
+  margin-bottom: 10px;
+}
+
+.graph {
+  border-bottom-color: rgb(229, 229, 229);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-bottom: 0;
+  padding-top: 0;
   margin-bottom: 10px;
 }
 
