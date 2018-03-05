@@ -19,9 +19,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    //let local = Number(window.location.pathname.split('/')[2]);
-    let id = this.props.id;
-    this.fetch(id);
+    let local = Number(window.location.pathname.split('/')[2]);
+    //let id = this.props.id;
+    this.fetch(local);
   }
 
   fetch(id) {
