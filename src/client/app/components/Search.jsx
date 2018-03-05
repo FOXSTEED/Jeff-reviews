@@ -22,13 +22,12 @@ class Search extends React.Component {
   }
 
   submit() {
-    console.log(this.state.search);
     this.props.filter(this.state.search);
+    this.setState({search: ''});
   }
 
   enter(e) {
     if (e.key === 'Enter') {
-      console.log('enter clicked');
       this.submit();
     }
   }
@@ -38,9 +37,9 @@ class Search extends React.Component {
       <div>
         <p className={styles.header}>Show reviews that mention</p>
         <div className={styles.search}>
-          <span onClick={() => this.submit()} className={styles.icon}><i class="fas fa-search"></i></span><input onKeyPress={(e) => this.enter(e)} onChange={(e) => this.handleChange(e)}placeholder={this.state.placeholder} className={styles.input}></input>
+          <span onClick={() => this.submit()} className={styles.icon}><i class="fas fa-search"></i></span><input value={this.state.search} onKeyPress={(e) => this.enter(e)} onChange={(e) => this.handleChange(e)}placeholder={this.state.placeholder} className={styles.input}></input>
         </div>
-        <div onClick={() => this.props.reset()} className={styles.buttons}>All reviews</div>
+        <button onClick={() => this.props.reset()} className={styles.buttons}>All reviews</button>
         {this.props.words.map(word => <Word word={word} handleClick={this.handleClick.bind(this)}/>)}
         <p className={styles.nums}>{this.props.numRev ? `1 - ${this.props.numRev} reviews` : `0 reviews`}</p>
       </div>

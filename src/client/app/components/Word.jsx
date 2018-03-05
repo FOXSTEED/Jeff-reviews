@@ -9,13 +9,9 @@ class Word extends React.Component {
     }
   }
 
-  tagged() {
-    console.log('been tagged');
-  }
-
   render() {
     return (
-      <div onClick={(e) => this.props.handleClick(e)} className={styles.buttons}>{this.props.word}</div>
+      <button onClick={(e) => this.props.handleClick(e)} className={styles.buttons}>{this.props.word}</button>
     )
   }
 }
