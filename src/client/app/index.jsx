@@ -16,14 +16,18 @@ class App extends React.Component {
       topWords: [],
       graphInfo: []
     };
-    this.fetch();
   }
 
-  fetch() {
+  componentDidMount() {
+    let id = Number(window.location.pathname.split('/')[2]);
+    this.fetch(id);
+  }
+
+  fetch(id) {
     let context = this;
     $.ajax({
       type: 'GET',
-      url: '/listings/134/reviews',
+      url: `/listings/${id}/reviews`,
       success: function(data) {
         context.getDistribution(data);
         context.setState({reviews: data});
