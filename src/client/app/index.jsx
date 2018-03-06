@@ -28,7 +28,7 @@ class Reviews extends React.Component {
     let context = this;
     $.ajax({
       type: 'GET',
-      url: `/listings/${id}/reviews`,
+      url: `http://localhost:3001/listings/${id}/reviews`,
       success: function(data) {
         context.getDistribution(data);
         context.setState({reviews: data});
