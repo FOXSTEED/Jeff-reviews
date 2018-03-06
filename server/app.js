@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
+
 const app = express();
 const routes = require('./routes.js');
 const mongoose = require('mongoose');
+
 mongoose.connect('mongodb://localhost/reviews');
 
 app.use('/listings/:id', express.static(path.join(__dirname, '..', 'src/client/public')));
