@@ -1,37 +1,38 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'src/client/public');
-var APP_DIR = path.resolve(__dirname, 'src/client/app');
+const BUILD_DIR = path.resolve(__dirname, 'src/client/public');
+const APP_DIR = path.resolve(__dirname, 'src/client/app');
 
-var config = {
-  entry: APP_DIR + '/index.jsx',
+const config = {
+  entry: `${APP_DIR}/index.jsx`,
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
-  module : {
-    loaders : [
+  module: {
+    loaders: [
       {
-        test : /\.jsx?/,
-        include : APP_DIR,
-        loader : 'babel-loader'
+        test: /\.jsx?/,
+        include: APP_DIR,
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
-        loader: 'style-loader'
+        loader: 'style-loader',
       },
       {
         test: /\.css$/,
         loader: 'css-loader',
         query: {
-        modules: true,
-        localIdentName: '[name]__[local]___[hash:base64:5]'
-        }
-      }
-    ]
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]',
+        },
+      },
+    ],
   },
-}
+  resolve: { extensions: ['.jsx', '.js'] },
+};
 
 
 module.exports = config;

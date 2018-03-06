@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+
 import React from 'react';
 import styles from './styling/ReviewListEntry.css';
-import ReviewBubbles from './ReviewBubbles.jsx';
+import ReviewBubbles from './ReviewBubbles';
 
 const ReviewListEntry = (props) => {
   return (

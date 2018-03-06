@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
+
 import React from 'react';
-import Word from './Word.jsx';
+import Word from './Word';
 import styles from './styling/SearchWords.css';
 
 class Search extends React.Component {
@@ -10,10 +12,11 @@ class Search extends React.Component {
       placeholder: 'Search reviews',
       search: '',
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    let word = e.currentTarget.textContent;
+    const word = e.currentTarget.textContent;
     this.props.filter(word);
   }
 
@@ -40,8 +43,8 @@ class Search extends React.Component {
           <span onClick={() => this.submit()} className={styles.icon}><i class="fas fa-search"></i></span><input value={this.state.search} onKeyPress={(e) => this.enter(e)} onChange={(e) => this.handleChange(e)}placeholder={this.state.placeholder} className={styles.input}></input>
         </div>
         <button onClick={() => this.props.reset()} className={styles.buttons}>All reviews</button>
-        {this.props.words.map(word => <Word word={word} handleClick={this.handleClick.bind(this)}/>)}
-        <p className={styles.nums}>{this.props.numRev ? `1 - ${this.props.numRev} reviews` : `0 reviews`}</p>
+        {this.props.words.map(word => <Word word={word} handleClick={this.handleClick} />)}
+        <p className={styles.nums}>{this.props.numRev ? `1 - ${this.props.numRev} reviews` : '0 reviews'}</p>
       </div>
     );
   }

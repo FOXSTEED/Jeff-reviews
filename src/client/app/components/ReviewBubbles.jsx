@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
+
 import React from 'react';
-import ReviewBubble from './ReviewBubble.jsx';
+import ReviewBubble from './ReviewBubble';
 
 const ReviewBubbles = (props) => {
   const bubbles = [];
