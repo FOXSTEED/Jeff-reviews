@@ -7,7 +7,7 @@ import TryAgain from './components/TryAgain.jsx';
 import styles from './components/styling/app.css';
 import Graph from './components/Graph.jsx';
 
-class App extends React.Component {
+class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +21,7 @@ class App extends React.Component {
   componentDidMount() {
     //const local = Number(window.location.pathname.split('/')[2]);
     const id = this.props.id;
-    this.fetch(local);
+    this.fetch(id);
   }
 
   fetch(id) {
@@ -166,5 +166,8 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Reviews />, document.getElementById('app'));
+
+window.Reviews = Reviews;
+export default Reviews;
 
