@@ -14,12 +14,12 @@ class App extends React.Component {
       reviews: [],
       copied: [],
       topWords: [],
-      graphInfo: []
+      graphInfo: [],
     };
   }
 
   componentDidMount() {
-    let local = Number(window.location.pathname.split('/')[2]);
+    const local = Number(window.location.pathname.split('/')[2]);
     //let id = this.props.id;
     this.fetch(local);
   }
@@ -42,53 +42,53 @@ class App extends React.Component {
   }
 
   generateGraphData(count, percents) {
-    let rating = {
+    const rating = {
       5: 'Excellent',
       4: 'Very good',
       3: 'Average',
       2: 'Poor',
-      1: 'Terrible'
-    }
-    let info = [];
-    for (let key in count) {
+      1: 'Terrible',
+    };
+    const info = [];
+    for (const key in count) {
       info.unshift({rating: rating[key], count: count[key], percentage: percents[key], rank: key});
     }
-    this.setState({graphInfo: info});
+    this.setState({ graphInfo: info });
   }
 
   handleRating(e) {
-    let rating = {
-      'Excellent': 5,
+    const rating = {
+      Excellent: 5,
       'Very good': 4,
-      'Average': 3,
-      'Poor': 2,
-      'Terrible': 1
-    }
+      Average: 3,
+      Poor: 2,
+      Terrible: 1,
+    };
     this.sortByRating(rating[e.target.innerText]);
   }
 
   sortByRating(num) {
-    let filtered = [];
-    let current = this.state.copied;
-    for (let i = 0; i < current.length; i++) {
+    const filtered = [];
+    const current = this.state.copied;
+    for (let i = 0; i < current.length; i += 1) {
       if (current[i].rating === num) {
         filtered.push(current[i]);
       }
     }
-    this.setState({reviews: filtered})
+    this.setState({ reviews: filtered });
   }
 
   getDistribution(arr) {
-    let base = {
+    const base = {
       5: 0,
       4: 0,
       3: 0,
       2: 0,
-      1: 0
-    }
-    let distro = arr.reduce((acc, value) => {
+      1: 0,
+    };
+    const distro = arr.reduce((acc, value) => {
       if (acc[value.rating]) {
-        acc[value.rating]++;
+        acc[value.rating] += 1;
       } else {
         acc[value.rating] = 1;
       }
@@ -98,8 +98,8 @@ class App extends React.Component {
   }
 
   getPercentage(obj) {
-    let numReviews = Object.values(obj).reduce((acc, value) => acc + value);
-    let percent = {}
+    const numReviews = Object.values(obj).reduce((acc, value) => acc + value);
+    const percent = {};
     for (let key in obj) {
       percent[key] = Math.trunc(obj[key] / numReviews * 100);
     }
@@ -107,41 +107,41 @@ class App extends React.Component {
   }
 
   reset() {
-    let copied = this.state.copied;
-    this.setState({reviews: copied});
+    const copied = this.state.copied;
+    this.setState({ reviews: copied });
   }
 
   filterByWord(word) {
-    let filtered = [];
-    let current = this.state.copied;
-    for (let i = 0; i < current.length; i++) {
+    const filtered = [];
+    const current = this.state.copied;
+    for (let i = 0; i < current.length; i += 1) {
       if (current[i].comment.includes(word)) {
         filtered.push(current[i]);
       }
     }
-    this.setState({reviews: filtered})
+    this.setState({ reviews: filtered });
   }
 
   getWords(arr) {
-    let wordsArr = [];
-    for (let i = 0; i < arr.length; i++) {
+    const wordsArr = [];
+    for (let i = 0; i < arr.length; i += 1) {
       arr[i].comment.split(' ').forEach(word => wordsArr.push(word));
     }
-    let wordsObj = wordsArr.reduce((acc, value) => {
+    const wordsObj = wordsArr.reduce((acc, value) => {
       if (acc[value]) {
-        acc[value]++;
+        acc[value] += 1;
       } else {
         acc[value] = 1;
       }
       return acc;
     }, {});
-    let topWords = [];
+    const topWords = [];
     for (let key in wordsObj) {
       if (wordsObj[key] > 4 && key.length > 3) {
         topWords.push(key);
       }
     }
-    this.setState({topWords: topWords});
+    this.setState({ topWords: topWords });
   }
 
   render() {
@@ -162,9 +162,9 @@ class App extends React.Component {
           {this.state.reviews.length ? <ReviewList reviews={this.state.reviews} /> : <TryAgain reset={this.reset.bind(this)}/>}
         </div>
       </div>
-    )
+    );
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
 

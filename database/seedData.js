@@ -1,21 +1,23 @@
 const faker = require('faker');
+
 const db = require('./index.js');
 const mongoose = require('mongoose');
+
 mongoose.connect('mongodb://localhost/reviews');
 
-let getRandom = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+const getRandom = (min, max) => {
+  const a = Math.ceil(min);
+  const b = Math.floor(max);
+  return Math.floor(Math.random() * ((b - a) + 1)) + a;
+};
 
-let createLocation = () => {
-  let results = {};
-  for (let i = 0; i < 200; i++) {
+const createLocation = () => {
+  const results = {};
+  for (let i = 0; i < 200; i += 1) {
     results[i] = faker.address.city();
   }
   return results;
-}
+};
 
 const listing = createLocation();
 const howRecent = {
@@ -34,17 +36,17 @@ const howRecent = {
   12: '3 months ago',
   13: '4 months ago',
   14: '5 months ago',
-  15: '6 months ago'
-}
+  15: '6 months ago',
+};
 
-let makeData = (num) => {
-  let ratingGen = getRandom(1, 5);
-  let listingGen = getRandom(0, 199);
-  let ranThumb = getRandom(1, 50)
-  let ranReview = getRandom(1, 100);
-  let recent = getRandom(0, 15);
+const makeData = (num) => {
+  const ratingGen = getRandom(1, 5);
+  const listingGen = getRandom(0, 199);
+  const ranThumb = getRandom(1, 50);
+  const ranReview = getRandom(1, 100);
+  const recent = getRandom(0, 15);
 
-  let review = {
+  const review = {
     listingId: listingGen,
     location: listing[listingGen],
     reviewId: num,
@@ -59,17 +61,17 @@ let makeData = (num) => {
     userImage: faker.image.avatar(),
     userThumbs: ranThumb,
     userReviews: ranReview,
-  }
+  };
   return review;
-}
+};
 
-let allData = () => {
-  let output = [];
-  for (let i = 0; i < 1600; i++) {
+const allData = () => {
+  const output = [];
+  for (let i = 0; i < 1600; i += 1) {
     output.push(makeData(i));
   }
   return output;
-}
+};
 
-let data = allData();
+const data = allData();
 db.save(data);

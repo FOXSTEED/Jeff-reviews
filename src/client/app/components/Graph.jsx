@@ -10,7 +10,7 @@ const Graph = (props) => {
         {props.graphInfo.map(rating => <GraphRow data={rating} handleRating={props.handleRating} />)}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default Graph;

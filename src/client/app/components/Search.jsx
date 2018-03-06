@@ -8,8 +8,8 @@ class Search extends React.Component {
 
     this.state = {
       placeholder: 'Search reviews',
-      search: ''
-    }
+      search: '',
+    };
   }
 
   handleClick(e) {
@@ -18,12 +18,12 @@ class Search extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({search: e.target.value});
+    this.setState({ search: e.target.value });
   }
 
   submit() {
     this.props.filter(this.state.search);
-    this.setState({search: ''});
+    this.setState({ search: '' });
   }
 
   enter(e) {
@@ -43,7 +43,7 @@ class Search extends React.Component {
         {this.props.words.map(word => <Word word={word} handleClick={this.handleClick.bind(this)}/>)}
         <p className={styles.nums}>{this.props.numRev ? `1 - ${this.props.numRev} reviews` : `0 reviews`}</p>
       </div>
-    )
+    );
   }
 }
 
