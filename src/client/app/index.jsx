@@ -166,7 +166,7 @@ class Reviews extends React.Component {
   }
 }
 
-ReactDOM.render(<Reviews />, document.getElementById('app'));
+//ReactDOM.render(<Reviews />, document.getElementById('app'));
 
 window.Reviews = Reviews;
 export default Reviews;
