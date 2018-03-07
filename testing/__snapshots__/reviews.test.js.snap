@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reviews app should render Reviews module 1`] = `
+<div
+  className="main"
+>
+  <div
+    className="titleHeader"
+  >
+    <span
+      className="title"
+    >
+      Reviews
+    </span>
+    <span
+      className="counter"
+    >
+      (0)
+    </span>
+    <button
+      className="button"
+    >
+      Write a Review
+    </button>
+  </div>
+  <div
+    className="graph"
+  >
+    <Graph
+      graphInfo={Array []}
+      handleRating={[Function]}
+    />
+  </div>
+  <div
+    className="header"
+  >
+    <Search
+      filter={[Function]}
+      numRev={0}
+      reset={[Function]}
+      words={Array []}
+    />
+  </div>
+  <div>
+    <TryAgain
+      reset={[Function]}
+    />
+  </div>
+</div>
+`;
