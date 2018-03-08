@@ -22,11 +22,15 @@ const reviewSchema = mongoose.Schema({
 const Review = mongoose.model('Review', reviewSchema);
 
 const save = (arr) => {
+  const promises = [];
   for (let i = 0; i < arr.length; i += 1) {
     const entry = arr[i];
     const toSave = new Review(entry);
-    toSave.save();
+    promises.push(toSave.save());
   }
+  Promise.all(promises).then(() => {
+    process.exit();
+  });
 };
 
 const find = (listing, callback) => {
