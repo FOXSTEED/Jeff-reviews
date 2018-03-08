@@ -3,7 +3,7 @@ const faker = require('faker');
 const db = require('./index.js');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/reviews');
+mongoose.connect('mongodb://mongo/reviews');
 
 const getRandom = (min, max) => {
   const a = Math.ceil(min);

@@ -15,7 +15,9 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon server/app.js",
+    "start": "npm run-script build && npm run-script seed-db && npm run-script serve",
+    "serve": "node server/app.js",
+    "serve-dev": "nodemon server/app.js",
     "dev": "webpack -d --watch",
     "build": "webpack -p",
     "seed-db": "node ./database/seedData.js",
