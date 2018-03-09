@@ -22,6 +22,14 @@ const reviewSchema = mongoose.Schema({
 const Review = mongoose.model('Review', reviewSchema);
 
 const save = (arr) => {
+  Review.remove({}, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('Dropped DB');
+    }
+  });
+
   const promises = [];
   for (let i = 0; i < arr.length; i += 1) {
     const entry = arr[i];
@@ -29,6 +37,7 @@ const save = (arr) => {
     promises.push(toSave.save());
   }
   Promise.all(promises).then(() => {
+    console.log('All added into DB');
     process.exit();
   });
 };
