@@ -6,7 +6,7 @@ const app = express();
 const routes = require('./routes.js');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://database/reviews');
+mongoose.connect('mongodb://localhost/reviews');
 
 app.use(cors());
 
