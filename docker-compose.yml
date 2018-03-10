@@ -4,11 +4,11 @@ services:
   reviews:
     build: ./
     depends_on:
-      - 'mongo'
+      - 'database'
     ports:
       - 3001:3001
     volumes:
       - .:/reviews
 
-  mongo:
+  database:
     image: mongo

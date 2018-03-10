@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/reviews');
+mongoose.connect('mongodb://database/reviews');
 
 const reviewSchema = mongoose.Schema({
   listingId: Number,
