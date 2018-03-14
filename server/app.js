@@ -7,7 +7,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://database/reviews');
+mongoose.connect('mongodb://localhost:27017/reviews');
 
 app.use(cors());
 
@@ -16,7 +16,7 @@ app.use('/:id', express.static(path.join(__dirname, '..', 'src/client/public')))
 app.use('/reviews/bundle.js', express.static(path.join(__dirname, '..', 'src/client/public/bundle.js')));
 
 app.use('/reviews/:id', (req, res) => {
-  const listing = req.params.id;
+  let listing = req.params.id;
   db.find(listing, (data) => {
     res.send(data);
   });

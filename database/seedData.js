@@ -3,7 +3,7 @@ const faker = require('faker');
 const db = require('./index.js');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://mongo/reviews');
+mongoose.connect('mongodb://localhost:27017/reviews');
 
 const getRandom = (min, max) => {
   const a = Math.ceil(min);
@@ -55,7 +55,7 @@ const makeData = (num) => {
     latest: recent,
     howRecent: howRecent[recent],
     reviewHeadline: faker.lorem.sentence(),
-    comment: faker.lorem.paragraphs(),
+    comment: (faker.lorem.sentence() + faker.lorem.sentence()),
     userName: faker.internet.userName(),
     userLocation: faker.address.city(),
     userImage: faker.image.avatar(),

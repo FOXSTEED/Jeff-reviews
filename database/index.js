@@ -43,12 +43,15 @@ const save = (arr) => {
 };
 
 const find = (listing, callback) => {
-  Review.find((err, reviews) => {
-    if (err) {
-      return console.error(err);
-    }
-    return callback(reviews);
-  }).where('listingId').equals(listing).sort({ latest: 1 });
+  let listingNum = parseInt(listing);
+ Review.find({listingId: listingNum}, (err, data) => {
+   if (err) {
+     console.log(err);
+   } else {
+     console.log('got data');
+     callback(data);
+   }
+ });
 };
 
 module.exports.save = save;
