@@ -48,7 +48,6 @@ const find = (listing, callback) => {
    if (err) {
      console.log(err);
    } else {
-     console.log('got data');
      callback(data);
    }
  });
