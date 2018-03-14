@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bluebird = require('bluebird');
 
 mongoose.connect('mongodb://database/reviews');
 
@@ -21,24 +22,10 @@ const reviewSchema = mongoose.Schema({
 
 const Review = mongoose.model('Review', reviewSchema);
 
-const save = (arr) => {
-  Review.remove({}, (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('Dropped DB');
-    }
-  });
-
-  const promises = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    const entry = arr[i];
-    const toSave = new Review(entry);
-    promises.push(toSave.save());
-  }
-  Promise.all(promises).then(() => {
-    console.log('All added into DB');
-    process.exit();
+const save = (oneReview, stringPassed) => {
+  let toSave = new Review(oneReview);
+  toSave.save((err) => {
+    if(err){console.log(err);}
   });
 };
 

@@ -3,7 +3,7 @@ const faker = require('faker');
 const db = require('./index.js');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/reviews');
+mongoose.connect('mongodb://127.0.0.1:27017/reviews');
 
 const getRandom = (min, max) => {
   const a = Math.ceil(min);
@@ -39,9 +39,9 @@ const howRecent = {
   15: '6 months ago',
 };
 
-const makeData = (num) => {
+const makeData = (num, range) => {
   const ratingGen = getRandom(1, 5);
-  const listingGen = getRandom(0, 199);
+  const listingGen = getRandom(range, (range+1249));
   const ranThumb = getRandom(1, 50);
   const ranReview = getRandom(1, 100);
   const recent = getRandom(0, 15);
@@ -65,13 +65,14 @@ const makeData = (num) => {
   return review;
 };
 
-const allData = () => {
-  const output = [];
-  for (let i = 0; i < 1600; i += 1) {
-    output.push(makeData(i));
+const allData = (range) => {
+  for (let i = range; i < (range+10); i++) {
+    db.save(makeData(i, range));
   }
-  return output;
+  console.log('DONE BABEY');
 };
 
-const data = allData();
-db.save(data);
+for(let x = 0; x < 100; x+= 10) {
+  allData(x);
+}
+
