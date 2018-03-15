@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const bluebird = require('bluebird');
+const Promise = require('bluebird');
 
-mongoose.connect('mongodb://database/reviews');
+mongoose.connect('mongodb://127.0.0.1:27017/reviews');
 
 const reviewSchema = mongoose.Schema({
   listingId: Number,
   location: String,
-  reviewId: { type: Number, unique: true },
+  reviewId: Number,
   date: String,
   latest: Number,
   howRecent: String,
@@ -22,11 +22,9 @@ const reviewSchema = mongoose.Schema({
 
 const Review = mongoose.model('Review', reviewSchema);
 
-const save = (oneReview, stringPassed) => {
-  let toSave = new Review(oneReview);
-  toSave.save((err) => {
-    if(err){console.log(err);}
-  });
+const save = async function (reviewArr) {
+  await Review.insertMany(reviewArr);
+  console.log('saved');
 };
 
 const find = (listing, callback) => {
