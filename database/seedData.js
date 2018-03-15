@@ -39,9 +39,9 @@ const howRecent = {
   15: '6 months ago',
 };
 
-const makeData = (num, range) => {
+const makeData = (num) => {
   const ratingGen = getRandom(1, 5);
-  const listingGen = getRandom(range, (range+1249));
+  const listingGen = getRandom(0, 125);
   const ranThumb = getRandom(1, 50);
   const ranReview = getRandom(1, 100);
   const recent = getRandom(0, 15);
@@ -64,15 +64,45 @@ const makeData = (num, range) => {
   };
   return review;
 };
-
-const allData = (range) => {
-  for (let i = range; i < (range+10); i++) {
-    db.save(makeData(i, range));
+const makeBadData = (i) => {
+  const data = {
+    listingId: getRandom(1,12500),
+    location: 'Your moms house',
+    reviewId: i,
+    date: '12/22/13',
+    latest: 12,
+    howRecent: howRecent[12],
+    rating: 4,
+    reviewHeadline: 'I got some stuff I just want my data to insert',
+    comment: ' sometihgan aaiasdf please work lmao :) hehehe',
+    userName: 'jqywang',
+    userLocation: 'san francisco',
+    userImage: 'https://imgur.com/PbjIC',
+    userThumbs: '23',
+    userReviews: '33',
   }
-  console.log('DONE BABEY');
+  return data;
+}
+
+let allData = async function(range, increment) {
+  let reviews = [];
+  for(var i = range; i < range+increment; i++) {
+    reviews.push(makeBadData(i));
+  }
+  await db.save(reviews);
+  console.log('after for loop');
 };
 
-for(let x = 0; x < 100; x+= 10) {
-  allData(x);
+async function iterateOverStuff(){ 
+  console.time();
+  let total = 10000000;
+  let bigRange = 100000;
+
+  for(let x = 0; x < total; x+= bigRange) {
+    await allData(x, bigRange);
+    console.log(x);
+  }
+  console.timeEnd();
 }
+iterateOverStuff();
 
