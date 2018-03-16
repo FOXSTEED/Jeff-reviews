@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS users
-DROP TABLE IF EXISTS reviews
+DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS users;
 CREATE TABLE users (
-    id SERIAL,
+    id SERIAL PRIMARY KEY,
     username TEXT,
     location TEXT,
     image TEXT,
@@ -11,7 +11,7 @@ CREATE TABLE users (
 
 CREATE TABLE reviews(
     id SERIAL,
-    userId INTEGER references users(id),
+    userId INTEGER REFERENCES users (id),
     listingId INTEGER,
     rating INTEGER,
     date TEXT,
