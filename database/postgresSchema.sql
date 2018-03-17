@@ -15,8 +15,12 @@ CREATE TABLE reviews(
     listingId INTEGER,
     rating INTEGER,
     date TEXT,
-    lastest INTEGER,
+    latest INTEGER,
     howRecent TEXT,
     reviewHeadline TEXT,
     comment TEXT
 );
+
+/*
+psql -U jqywang -d reviews -a -f postgresSchema.sql
+*/
