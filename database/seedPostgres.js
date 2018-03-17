@@ -1,6 +1,6 @@
 const faker = require('faker');
 const pgp = require('pg-promise')({
-   capSQL: true // generate capitalized SQL 
+   capSQL: true
 });
 const getRandom = (min, max) => {
   const a = Math.ceil(min);
@@ -16,8 +16,7 @@ const cn = {
 };
 
 const db = pgp(cn);
-// let userData = ['jeff', 'sf', 'imageurl', '3', '4'];
-// let userQuery = "INSERT INTO users(username, location, image, userThumbs, userReviews) VALUES($1, $2, $3, $4, $5)"
+
 const csUser = new pgp.helpers.ColumnSet([
   'username',
   'location',
@@ -35,9 +34,6 @@ const csReview = new pgp.helpers.ColumnSet([
   'reviewheadline',
   'comment'
 ], {table: 'reviews'});
-
-//const insert = pgp.helpers.insert([generateUser(), generateUser()], csUser);
-
 
 const generateUser = () => {
   return {
@@ -69,7 +65,6 @@ const getNextDataUser = (t, index) => {
       data[i] = generateUser();
     }
   }
-  // console.log(data);
   return Promise.resolve(data);
 }
 const getNextDataReview = (t, index) => { 
@@ -80,7 +75,6 @@ const getNextDataReview = (t, index) => {
       data[i] = generateReview();
     }
   }
-  // console.log(data);
   return Promise.resolve(data);
 }
 
@@ -92,7 +86,6 @@ db.tx('user-transaction', t => {
       .then(data => {
         if (data) {
           const insert = pgp.helpers.insert(data, csUser);
-          // console.log(insert);
           return t.none(insert);
         }
       })
@@ -126,11 +119,3 @@ db.tx('user-transaction', t => {
   .catch(e => {
     throw e;
   });
-// console.log(insert);
-// db.none(insert)
-//   .then(() => {
-//     console.log('success');
-//   })
-//   .catch(e => {
-//     console.log(e);
-//   });
