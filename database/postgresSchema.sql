@@ -10,7 +10,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE reviews(
-    id SERIAL,
+    id SERIAL PRIMARY KEY,
     userId INTEGER REFERENCES users (id),
     listingId INTEGER,
     rating INTEGER,
