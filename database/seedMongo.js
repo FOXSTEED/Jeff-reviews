@@ -45,8 +45,9 @@ let seedDB = () => {
       if(batch < total/size) {
         insert();
       } else {
-        console.log('done in', (new Date().getTime() - time)/1000);
+        await collection.createIndex({listingId: "hashed"});
         client.close();
+        console.log('done in', (new Date().getTime() - time)/1000);
       }
     }
     insert();
@@ -56,3 +57,6 @@ let seedDB = () => {
   })
 }
 seedDB();
+
+module.exports.getRandom = getRandom;
+module.exports.makeBadData = makeBadData;
