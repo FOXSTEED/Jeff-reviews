@@ -28,3 +28,11 @@ CREATE INDEX listingindex ON reviewtable USING hash (listingid);
 /*
 psql -U jqywang -d reviews -a -f postgresSchema.sql
 */
+/*
+SELECT   *
+FROM        reviewtable
+INNER JOIN  usertable
+    ON      reviewtable.userid = usertable.userid
+WHERE reviewtable.listingid = 140;
+*/
+
