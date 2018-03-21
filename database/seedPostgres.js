@@ -18,12 +18,13 @@ const cn = {
 const db = pgp(cn);
 
 const csUser = new pgp.helpers.ColumnSet([
+  'userid',
   'username',
   'location',
   'image',
   'userthumbs',
   'userreviews'
-], {table: 'users'});
+], {table: 'usertable'});
 const csReview = new pgp.helpers.ColumnSet([
   'userid',
   'listingid',
@@ -33,10 +34,11 @@ const csReview = new pgp.helpers.ColumnSet([
   'howrecent',
   'reviewheadline',
   'comment'
-], {table: 'reviews'});
+], {table: 'reviewtable'});
 
-const generateUser = () => {
+const generateUser = (i) => {
   return {
+    userid: i,
     username: faker.internet.userName(),
     location: 'San Francisco',
     image: 'image.img',
@@ -47,7 +49,7 @@ const generateUser = () => {
 const generateReview = () => {
   return {
     userid: getRandom(1, 1000000),
-    listingid: getRandom(1, 1250000),
+    listingid: getRandom(1, 10000000),
     rating: 4,
     date: '12/12/12',
     latest: 3,
@@ -62,14 +64,14 @@ const getNextDataUser = (t, index) => {
   if(index < 1000) {
     data = new Array(1000);
     for(let i = 0; i < 1000; i++) {
-      data[i] = generateUser();
+      data[i] = generateUser(i + 1 + index * 1000);
     }
   }
   return Promise.resolve(data);
 }
 const getNextDataReview = (t, index) => { 
   let data = null;
-  if(index < 2000) {
+  if(index < 6000) {
     data = new Array(5000);
     for(let i = 0; i < 5000; i++) {
       data[i] = generateReview();

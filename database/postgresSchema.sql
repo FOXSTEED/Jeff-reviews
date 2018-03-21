@@ -1,7 +1,8 @@
-DROP TABLE IF EXISTS reviews;
-DROP TABLE IF EXISTS users;
-CREATE TABLE users (
+DROP TABLE IF EXISTS reviewtable;
+DROP TABLE IF EXISTS usertable;
+CREATE TABLE usertable (
     id SERIAL PRIMARY KEY,
+    userid INTEGER,
     username TEXT,
     location TEXT,
     image TEXT,
@@ -9,9 +10,11 @@ CREATE TABLE users (
     userReviews INTEGER
 );
 
-CREATE TABLE reviews(
+CREATE UNIQUE INDEX userindex ON usertable (userid);
+
+CREATE TABLE reviewtable(
     id SERIAL PRIMARY KEY,
-    userId INTEGER REFERENCES users (id),
+    userId INTEGER REFERENCES usertable (userid),
     listingId INTEGER,
     rating INTEGER,
     date TEXT,
@@ -20,6 +23,7 @@ CREATE TABLE reviews(
     reviewHeadline TEXT,
     comment TEXT
 );
+CREATE INDEX listingindex ON reviewtable USING hash (listingid);
 
 /*
 psql -U jqywang -d reviews -a -f postgresSchema.sql
