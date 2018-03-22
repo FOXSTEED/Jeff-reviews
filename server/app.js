@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -8,10 +9,10 @@ const app = express();
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/reviews');
-
+//mongoose.connect('mongodb://mongo:27017/reviews');
 app.use(cors());
 
-app.use('/:id', express.static(path.join(__dirname, '..', 'src/client/public')));
+app.use('/:id', express.static(path.join(__dirname, '..', 'src/client/public/')));
 
 app.use('/reviews/bundle.js', express.static(path.join(__dirname, '..', 'src/client/public/bundle.js')));
 
