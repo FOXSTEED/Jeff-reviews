@@ -1,26 +1,35 @@
 require('newrelic');
+const MongoClient = require('mongodb').MongoClient;
+const Promise =require('bluebird');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const db = require('../database/index');
-
+const port = process.env.REVIEWPORT || 3001;
 const app = express();
-
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/reviews');
-//mongoose.connect('mongodb://mongo:27017/reviews');
+const mongooseOptions = {
+  autoIndex: false, // Don't build indexes
+  reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
+  reconnectInterval: 500, // Reconnect every 500ms
+  poolSize: 20, // Maintain up to 10 socket connections
+  bufferMaxEntries: 0
+};
 app.use(cors());
 
 app.use('/:id', express.static(path.join(__dirname, '..', 'src/client/public/')));
 
-app.use('/reviews/bundle.js', express.static(path.join(__dirname, '..', 'src/client/public/bundle.js')));
+// app.use('/reviews/bundle.js', express.static(path.join(__dirname, '..', 'src/client/public/bundle.js')));
 
-app.use('/reviews/:id', (req, res) => {
-  let listing = req.params.id;
-  db.find(listing, (data) => {
-    res.send(data);
-  });
-});
-
-app.listen(3001, () => console.log('Server running! Listening on port 3001!'));
+app.use('/reviews', require('./routes.js'));
+mongoose.connect('mongodb://localhost:27017/reviews', mongooseOptions)
+  .then( () => {
+      app.listen(port, () => console.log(`Server running! Mongoose Listening on port ${port}!`));
+    })
+  .catch(e => {throw err;});
+// MongoClient.connect('mongodb://localhost:27017/reviews', { promiseLibrary: Promise , poolSize: 15})
+//   .then(client => {
+//     app.locals.db=client.db('reviews');
+//     app.listen(port, () => console.log(`Server running! Listening on port ${port}!`));
+//   })
+//   .catch(err => console.log(err.stack));

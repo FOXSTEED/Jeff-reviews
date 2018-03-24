@@ -24,12 +24,12 @@ let benchmarker = async (num) => {
   return writeString;
 };
 benchmarker().then((data) => {
-  fs.writeFile('./data/mongoData.csv', data, (err)=> {
-    console.log(err);
+  // fs.writeFile('./data/mongoData.csv', data, (err)=> {
+    // console.log(err);
     let length = timeArray.length;
     let total = timeArray.reduce((a, b)=> {return (a+b)});
     console.log('average time: ',total/length);
-  })
+  // })
 });
 
   
