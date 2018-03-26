@@ -1,0 +1,325 @@
+.ReviewListEntry__main--2iWWQ {
+  height: auto;
+  display: flex;
+  margin-top: 5px;
+  overflow: auto;
+  margin-bottom: 10px;
+  border-bottom-color: rgb(229, 229, 229);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.ReviewListEntry__user--1m-iB {
+  margin: 0;
+  padding: 0;
+  height: 40%;
+  display: table-row;
+  flex-direction: column;
+  float: left;
+  padding: 12px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.ReviewListEntry__belowUser--1INF- {
+  color: rgb(0, 166, 128);
+  font-size: 12px;
+  margin-left: 2px;
+  margin-right: 2px;
+  text-align: center;
+}
+
+.ReviewListEntry__username--fx70n {
+  font-size: 11px;
+  cursor: pointer;
+  line-height: 20px;
+  color: rgb(118, 118, 118);
+  margin: 0;
+}
+
+.ReviewListEntry__location--vurbA {
+  font-size: 11px;
+  cursor: pointer;
+  line-height: 20px;
+  color: rgb(44, 44, 44);
+  font-weight: 700;
+  margin: 0;
+}
+
+.ReviewListEntry__picture--3Q2DM {
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+}
+
+.ReviewListEntry__header--2Hsnf {
+  display: inline-block;
+}
+
+.ReviewListEntry__bubbles--zdsK1 {
+  margin: 5px;
+}
+
+.ReviewListEntry__date--1rlhk {
+  color: rgb(74, 74, 74);
+  font-size: 12px;
+}
+
+.ReviewListEntry__headline--1-hxI {
+  color: rgb(0, 10, 18);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: left;
+}
+
+.ReviewListEntry__review--30C64 {
+  color: rgb(74, 74, 74);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.ReviewListEntry__ask--t9ggE {
+  font-size: 12px;
+  color: rgb(0, 102, 153);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.ReviewListEntry__button--2hHPP {
+  background-color: rgb(255, 255, 255);
+  color: rgb(74, 74, 74);
+  font-size: 12px;
+  font-weight: 400;
+  height: 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.ReviewListEntry__flag--aKTWg {
+  float: right;
+  color: rgb(74, 74, 74);
+}
+
+.ReviewListEntry__button--2hHPP:hover {
+  border-color: #00a680;
+}
+
+.ReviewListEntry__thumb--1vVw3 {
+  color: #00a680;
+  margin-right: 5px;
+}
+
+.ReviewListEntry__bottomnote--XxrpL {
+  font-size: 12px;
+  margin-bottom: 10px;
+  border-top-color: rgb(229, 229, 229);
+  border-top-width: 1px;
+  border-top-style: solid;
+  padding-top: 12px;
+  color: rgb(118, 118, 118);
+  width: 75%;
+}.SearchWords__buttons--2ON0j {
+  font-size: 12px;
+  display: inline-block;
+  line-height: 14px;
+  padding-bottom: 10px;
+  padding-top: 11px;
+  padding-left: 12px;
+  padding-right: 12px;
+  text-align: center;
+  margin-bottom: 6px;
+  margin-right: 6px;
+  margin-top: 10px;
+  color: rgb(74, 74, 74);
+  border-radius: 2px;
+  border: 1px solid rgb(229, 229, 229);
+}
+
+.SearchWords__buttons--2ON0j:focus {
+  font-size: 12px;
+  display: inline-block;
+  line-height: 14px;
+  padding-bottom: 10px;
+  padding-top: 11px;
+  padding-left: 12px;
+  padding-right: 12px;
+  text-align: center;
+  margin-bottom: 6px;
+  margin-right: 6px;
+  margin-top: 10px;
+  color: rgb(0, 166, 128);
+  border-radius: 2px;
+  border: 1px solid rgb(0, 166, 128);
+  outline-style: none;
+}
+
+.SearchWords__buttons--2ON0j:hover {
+  color: rgb(0, 166, 128);
+  border-color: rgb(0, 166, 128);
+}
+
+.SearchWords__header--Igw6M {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(0, 10, 18);
+  margin-bottom: 3px;
+  margin-top: 5px;
+}
+
+.SearchWords__search--2cAEW {
+  display: block;
+  font-size: 12px;
+  width: 90%;
+  border: 2px solid rgb(229, 229, 229);
+  padding: 10px;
+}
+
+.SearchWords__icon--3vd1q {
+  color: rgb(0, 166, 128);
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.SearchWords__input--3JJdP {
+  outline: none;
+  border: 0px solid;
+  width: 95%;
+}
+
+.SearchWords__nums--1cyNv {
+  font-size: 12px;
+  display: block;
+  color: rgb(74, 74, 74);
+  text-align: right;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}.TryAgain__try--1Dj_K {
+  background-color: rgb(255, 248, 208);
+  color: rgb(74, 74, 74);
+  font-size: 12px;
+  padding: 14px 12px;
+}
+
+.TryAgain__clear--1eyD_ {
+  float: right;
+}.app__main--jdK0i {
+  font-family: Arial,Tahoma,"Bitstream Vera Sans",sans-serif;
+  width: 66.6%;
+  box-sizing: border-box;
+  display: block;
+  padding-left: 24px;
+}
+
+.app__header--7YANG {
+  border-bottom-color: rgb(229, 229, 229);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-bottom: 10px;
+  padding-top: 12px;
+  margin-bottom: 10px;
+}
+
+.app__titleHeader--3roUZ {
+  border-bottom-color: rgb(229, 229, 229);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-bottom: 20px;
+  padding-top: 12px;
+  margin-bottom: 10px;
+}
+
+.app__graph--1nED8 {
+  border-bottom-color: rgb(229, 229, 229);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-bottom: 0;
+  padding-top: 0;
+  margin-bottom: 10px;
+}
+
+.app__title--13lvI {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(0, 10, 18);
+}
+
+.app__counter--hvJLc {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(118, 118, 118);
+  padding-left: 12px;
+}
+
+.app__button--3Rbmx {
+  color: rgb(255, 255, 255);
+  height: 36px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: rgb(0, 166, 128);
+  float: right;
+  border-radius: 2px;
+  width: 25%;
+}
+
+.app__button--3Rbmx:hover {
+  background-color: rgb(0, 192, 148);
+}.Graph__bar--3XWD6 {
+  background-color: rgb(229,229, 229);
+  width: 50%;
+  height: 12px;
+  margin-right: 10px;
+  margin-left: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.Graph__header--3acF_ {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(0, 10, 18);
+  margin-bottom: 10px;
+}
+
+.Graph__rating--2Nzwl {
+  display: inline-block;
+  width: 75px;
+  margin-left: 0;
+  color: rgb(74, 74, 74);
+}
+
+.Graph__rating--2Nzwl:hover {
+  color: rgb(0, 166, 128);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.Graph__main--3V7gD {
+  width: 80%;
+  margin-top: 30px;
+  font-size: 12px;
+}
+
+.Graph__list--1nMOD {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.Graph__entry--25OaI {
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.Graph__innerBar--3icS4 {
+  background-color: rgb(0, 166, 128);
+  height: 12px;
+  margin-right: 10px;
+  margin-left: 20px;
+  position: relative;
+  display: inline-block;
+  margin-left: 0;
+}
