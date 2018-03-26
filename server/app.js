@@ -19,7 +19,8 @@ app.use(cors());
 
 app.use('/:id', express.static(path.join(__dirname, '..', 'src/client/public/')));
 
-// app.use('/reviews/bundle.js', express.static(path.join(__dirname, '..', 'src/client/public/bundle.js')));
+app.use('/reviews/app.js', express.static(path.join(__dirname, '..', 'src/client/public/app.js')));
+app.use('/reviews/app-server.js', express.static(path.join(__dirname, '..', 'src/client/public/app-server.js')));
 
 app.use('/reviews', require('./routes.js'));
 mongoose.connect('mongodb://localhost:27017/reviews', mongooseOptions)

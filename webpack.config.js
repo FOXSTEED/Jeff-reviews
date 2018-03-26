@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'src/client/public');
 const APP_DIR = path.resolve(__dirname, 'src/client/app');
@@ -46,7 +47,18 @@ const common = {
           presets: ['react', 'es2015', 'env']
         },
       },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: ExtractTextPlugin.extract({ fallback: "style-loader", use: "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]--[hash:base64:5]" })
+      },
     ],
+  },
+  plugins: [
+    new ExtractTextPlugin("styles.css"),
+  ],
+  node: {
+    fs: 'empty'
   },
   resolve: { extensions: ['.jsx', '.js'] },
 };
@@ -54,7 +66,7 @@ const common = {
 const client = {
   entry: './client.js',
   output: {
-    path: __dirname + '/client/public',
+    path: __dirname + '/src/client/public',
     filename: 'app.js'
   },
 };
@@ -63,7 +75,7 @@ const server = {
   entry: './server.js',
   target: 'node',
   output: {
-    path: __dirname + '/client/public',
+    path: __dirname + '/src/client/public',
     filename: 'app-server.js',
     libraryTarget: 'commonjs-module'
   }

@@ -60,4 +60,6 @@ typings/
 
 # Ignore bundle.js
 bundle.js
+app.js
+app-server.js
 
