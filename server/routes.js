@@ -16,6 +16,7 @@ const router = express.Router();
 //   })
 // });
 
+
 router.get('/:id', (req, res) => {
   let listing = parseInt(req.params.id);
   db.Review.find({listingId: listing}, (err, data) => {

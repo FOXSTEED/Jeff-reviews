@@ -176,6 +176,5 @@ class Reviews extends React.Component {
   }
 }
 
-window.Reviews = Reviews;
-export default Reviews;
+module = Reviews;
 
