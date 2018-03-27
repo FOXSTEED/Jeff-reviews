@@ -40,7 +40,7 @@ class Search extends React.Component {
       <div>
         <p className={styles.header}>Show reviews that mention</p>
         <div className={styles.search}>
-          <span onClick={() => this.submit()} className={styles.icon}><i class="fas fa-search"></i></span><input value={this.state.search} onKeyPress={(e) => this.enter(e)} onChange={(e) => this.handleChange(e)}placeholder={this.state.placeholder} className={styles.input}></input>
+          <span onClick={() => this.submit()} className={styles.icon}><i className="fas fa-search"></i></span><input value={this.state.search} onKeyPress={(e) => this.enter(e)} onChange={(e) => this.handleChange(e)}placeholder={this.state.placeholder} className={styles.input}></input>
         </div>
         <button onClick={() => this.props.reset()} className={styles.buttons}>All reviews</button>
         {this.props.words.map(word => <Word word={word} handleClick={this.handleClick} />)}

@@ -24,8 +24,9 @@ class Reviews extends React.Component {
   }
 
   componentDidMount() {
-    const listingId = this.props.id;
-    this.fetch(listingId);
+    let path = window.location.pathname.split('/');
+    let idFromPathname = Number(path[1]);
+    this.fetch(idFromPathname);
   }
 
   getWords(arr) {
@@ -176,5 +177,5 @@ class Reviews extends React.Component {
   }
 }
 
-module = Reviews;
+export default Reviews;
 
