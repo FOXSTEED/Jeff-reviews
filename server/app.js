@@ -17,7 +17,9 @@ const mongooseOptions = {
 };
 app.use(cors());
 
+
 app.use('/bundledata', express.static(path.join(__dirname, '..', 'src/client/public/')));
+
 app.use('/reviews', require('./routes.js'));
 mongoose.connect('mongodb://localhost:27017/reviews', mongooseOptions)
   .then( () => {

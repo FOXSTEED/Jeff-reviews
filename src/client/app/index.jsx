@@ -25,6 +25,7 @@ class Reviews extends React.Component {
 
   componentDidMount() {
     let path = window.location.pathname.split('/');
+
     let listingId = Number(path[1]);
     this.fetch(listingId);
   }
@@ -177,5 +178,5 @@ class Reviews extends React.Component {
   }
 }
 
-module = Reviews;
+export default Reviews;
 
