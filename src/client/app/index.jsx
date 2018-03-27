@@ -24,7 +24,8 @@ class Reviews extends React.Component {
   }
 
   componentDidMount() {
-    const listingId = this.props.id;
+    let path = window.location.pathname.split('/');
+    let listingId = Number(path[1]);
     this.fetch(listingId);
   }
 
