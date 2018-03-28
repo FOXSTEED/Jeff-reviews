@@ -25,8 +25,9 @@ class Reviews extends React.Component {
 
   componentDidMount() {
     let path = window.location.pathname.split('/');
-    let idFromPathname = Number(path[1]);
-    this.fetch(idFromPathname);
+
+    let listingId = Number(path[1]);
+    this.fetch(listingId);
   }
 
   getWords(arr) {
