@@ -45,6 +45,8 @@
     "pg-promise": "^8.2.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "redis": "^2.8.0",
+    "redis-server": "^1.2.0",
     "webpack": "^3.11.0",
     "webpack-combine-loaders": "^2.0.3"
   },

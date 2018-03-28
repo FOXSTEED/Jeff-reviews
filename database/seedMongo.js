@@ -1,25 +1,27 @@
 const MongoClient = require('mongodb').MongoClient;
-
+const faker = require('faker');
 const getRandom = (min, max) => {
   const a = Math.ceil(min);
   const b = Math.floor(max);
   return Math.floor(Math.random() * ((b - a) + 1)) + a;
 }; 
 
+const avatar = faker.image.avatar();
+
 const makeBadData = (i) => {
   let data = {
     listingId: getRandom(1, 10000000),
-    location: 'Your moms house',
+    location: 'San Francisco Marriot',
     reviewId: i,
     date: '12/22/13',
     latest: 12,
     howRecent: '2 months ago',
-    rating: 4,
-    reviewHeadline: 'I liked this hotel a lot, I would give a 4/5, or a 5/7',
-    comment: 'I was down with the wait staff, but like maybe dont take itself as seriously? The food was good, I like SF, but dang man its hard to get around.',
-    userName: 'jqywang',
-    userLocation: 'san francisco',
-    userImage: 'https://imgur.com/PbjIC',
+    rating: i%5 + 1,
+    reviewHeadline: `I liked this hotel a lot, I would give a ${i%5 + 1}/5.`,
+    comment: `I was down with the wait staff, but like maybe dont take itself as seriously? The food was good, I like SF, but dang man its hard to get around. They told me I was the ${i}th user.`,
+    userName: 'randomUser',
+    userLocation: 'San Francisco',
+    userImage: avatar,
     userThumbs: '23',
     userReviews: '33',
   }
@@ -43,11 +45,12 @@ let seedDB = () => {
       await collection.bulkWrite(insertArray, {ordered: false});
       batch += 1;
       if(batch < total/size) {
+        console.log('inserted batch: ', batch);
         insert();
       } else {
         await collection.createIndex({listingId: "hashed"});
         client.close();
-        console.log('done in', (new Date().getTime() - time)/1000);
+        console.log('done in ', (new Date().getTime() - time)/60000, ' minutes');
       }
     }
     insert();

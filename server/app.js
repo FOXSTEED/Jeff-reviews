@@ -15,6 +15,21 @@ const mongooseOptions = {
   poolSize: 20, // Maintain up to 10 socket connections
   bufferMaxEntries: 0
 };
+
+// const REDIS_PORT = process.env.REDIS_PORT || 6379;
+// const client = redis.createClient(REDIS_PORT);
+// const cache = (req, res, next) => {
+//   const listing = req.params.id;
+//   client.get(listing, function (err, data) {
+//     if (err) throw err;
+//     console.log(data);
+//     if (data !== null) {
+//       res.send(data);
+//     } else {
+//       next();
+//     }
+//   });
+// };
 app.use(cors());
 
 

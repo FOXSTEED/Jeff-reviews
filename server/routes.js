@@ -1,38 +1,38 @@
 const express = require('express');
 const db = require('../database/index.js');
-
+const redis = require('redis');
 const router = express.Router();
 
-// router.get('/:id', (req, res) => {
-//   let listing = parseInt(req.params.id);
-//   const db = req.app.locals.db;
-//   let cursing = db.collection('reviews').find({ listingId: listing });
-//   let dataArray = [];
-//   cursing.on("data", (data) => {
-//     dataArray.push(data);
-//   });
-//   cursing.on("end", (data) => {
-//     res.send(dataArray);
-//   })
-// });
-
+// const REDIS_PORT = process.env.REDIS_PORT || 6379;
+// const client = redis.createClient(REDIS_PORT);
 
 router.get('/:id', (req, res) => {
   let listing = parseInt(req.params.id);
-  if(isNaN(listing)) {
-    res.statusCode = 404;
-    res.send('404 error, we do not have that URL for you' );
-  } else {
-    db.Review.find({listingId: listing}, (err, data) => {
-      if(err) {
-        res.end();
-        throw err;
+  //client.get(listing, (err, data) => {
+    // if(err) {
+    //   throw err;
+    //   res.status(404).end();
+    // }
+    // if(data !== null) {
+    //   res.status(200).send(JSON.parse(data));
+    // } else {
+      if(isNaN(listing)) {
+        res.statusCode = 404;
+        res.send('404 error, we do not have that URL for you' );
+      } else {
+        db.Review.find({listingId: listing}, {_id: 0}, (err, data) => {
+          if(err) {
+            res.end();
+            throw err;
+          }
+          else {
+          //  client.setex(listing, 1800, JSON.stringify(data));
+            res.send(data);
+          }
+        })
       }
-      else {
-        res.send(data);
-      }
-    })
-  }
+   // }
+ // });
 });
 
 module.exports = router;
