@@ -28,7 +28,7 @@ const makeBadData = (i) => {
   return data;
 }
 let time = new Date().getTime();
-let total = 30000000;
+let total = 20000000;
 let size = 20000;
 let batch = 0;
 
