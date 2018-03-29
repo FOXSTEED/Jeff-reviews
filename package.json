@@ -19,8 +19,8 @@
     "serve": "node server/app.js",
     "serve-dev": "nodemon server/app.js",
     "dev": "webpack -d --watch",
-    "build": "webpack -p",
-    "seed-db": "node ./database/seedData.js",
+    "build": "node node_modules/.bin/webpack --config webpack.config.prod.js",
+    "seed-db": "node ./database/seedMongo.js",
     "test": "jest --forceExit",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
@@ -31,6 +31,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "cors": "^2.8.4",
     "bluebird": "^3.5.1",
     "express": "^4.16.2",
     "jquery": "^3.3.1",
