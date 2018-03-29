@@ -6,7 +6,7 @@ const router = express.Router();
 // const REDIS_PORT = process.env.REDIS_PORT || 6379;
 // const client = redis.createClient(REDIS_PORT);
 
-router.get('/:id', (req, res) => {
+router.get('/:id', (req, res) => { // query db
   let listing = parseInt(req.params.id);
   //client.get(listing, (err, data) => {
     // if(err) {
@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
           }
         })
       }
-   // }
+  //  }
  // });
 });
 
