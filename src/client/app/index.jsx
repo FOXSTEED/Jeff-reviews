@@ -143,7 +143,7 @@ class Reviews extends React.Component {
     const context = this;
     $.ajax({
       type: 'GET',
-      url: `http://localhost:3001/reviews/${id}`,
+      url: `http://54.183.194.178:3001/reviews/${id}`,
       success: function success(data) {
         context.getDistribution(data);
         context.setState({ reviews: data });
