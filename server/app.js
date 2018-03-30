@@ -18,7 +18,7 @@ app.use(cors());
 app.use('/', express.static(path.join(__dirname, '..', 'src/client/public/')));
 
 app.use('/reviews', require('./routes.js'));
-mongoose.connect('mongodb://localhost:27017/reviews', mongooseOptions)
+mongoose.connect('mongodb://jqywang:F6F6F6F6@13.57.11.226:27017/reviews', mongooseOptions)
   .then( () => {
       app.listen(port, () => console.log(`Server running! Mongoose Listening on port ${port}!`));
     })
