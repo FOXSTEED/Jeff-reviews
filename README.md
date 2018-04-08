@@ -1,42 +1,42 @@
+# TravelBrite Reviews Microservice
 
-# Jeff-reviews
-Review component for clone of tripadvisor started by bryan. Will stress test at much larger quantities of data and requests per minute
+Set up a reviews microservice for TravelBrite that can handle maximum requests per second at low latency during data load. Using React for front end, MongoDB as database, and Express and Node server.
 
+### Installing
+Have a node version greater than v7.6.0
 
-> Project description
+```
+node -v
+```
+install dependancies
 
-## Related Projects
-
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
+```
 npm install
 ```
+seed database (depending on system could take up to 20 minutes)
+```
+node ./database/seedMongo.js
+```
+run tests
+```
+npm test
+```
+start server
+```
+npm start
+```
 
+## Authors
+
+ **Jeffrey Wang**
+ 
+ _Bryan Duong for original front end code_
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Thank you to BoxLunch for the front end sector of this project
